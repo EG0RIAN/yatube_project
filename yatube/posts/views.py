@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
+
 def index(request):
-    return HttpResponse('Главная страница')
-    
+    template = 'posts/index.html'
+    return render(request, template) 
+
 def group_posts(request, pk):
-    return HttpResponse(f'Ерунда номер {pk}')
+    return HttpResponse(f'Хуендок {pk}')
