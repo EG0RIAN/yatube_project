@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 <!-- класс py-5 создает отступы сверху и снизу блока -->
 {% block content %}
+
 <div class="container py-5">     
-  <h1>{{ main_text }}</h1>
+  <h1>{{ text }}</h1>
   <article>
     <ul>
       <li>
@@ -20,7 +21,9 @@
       и Бабарыкинымъ, ругалъ Сержпутовскому и ничего не сдѣлалъ, вотъ 3 упрека, которыя дѣлаю с
       ебѣ за нынѣшній день. (3)
     </p>
-    <a href="group_list.html">все записи группы</a>
+    {% if post.group %}  
+      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+    {% endif %} 
   </article>
   <hr>
   <article>
@@ -44,7 +47,9 @@
       накрылъ Крыжановскій, что, признаюсь, было мнѣ не совсѣмъ пріятно. Упрекаю себя за 
       безхарактерность, что не высидѣлъ дома, и зa праздность цѣлаго дня. Это главный пунктъ. (2)
     </p>
-    <a href="group_list.html">все записи группы</a>
+    {% if post.group %}  
+      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+    {% endif %} 
   </article>
   <hr>
   <article>
@@ -64,8 +69,11 @@
       Гембичомъ, потомъ болталъ съ Шубинымъ и съ Сашей Горчаковымъ. — Исключая праздности, 
       днемъ своимъ очень доволенъ. (1)
     </p>
-    <a href="group_list.html">все записи группы</a>
+    {% if post.group %}  
+      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+    {% endif %} 
   </article>
   <!-- под последним постом нет линии -->
 </div> 
+
 {% endblock %}
